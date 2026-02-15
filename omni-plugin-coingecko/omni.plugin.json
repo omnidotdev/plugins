@@ -1,0 +1,38 @@
+{
+  "id": "omni.coingecko",
+  "name": "CoinGecko",
+  "version": "1.0.0",
+  "description": "Cryptocurrency price data and trending coins via CoinGecko",
+  "author": "Omni",
+  "kind": "tool",
+  "permissions": ["network"],
+  "entry": "index.ts",
+  "tools": [
+    {
+      "name": "crypto_price",
+      "description": "Get the current price of a cryptocurrency in USD and other currencies",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "coin_id": {
+            "type": "string",
+            "description": "CoinGecko coin ID (e.g. 'bitcoin', 'ethereum', 'solana')"
+          },
+          "vs_currencies": {
+            "type": "string",
+            "description": "Comma-separated currency codes (default: 'usd')"
+          }
+        },
+        "required": ["coin_id"]
+      }
+    },
+    {
+      "name": "crypto_trending",
+      "description": "Get the top trending cryptocurrencies on CoinGecko",
+      "input_schema": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ]
+}

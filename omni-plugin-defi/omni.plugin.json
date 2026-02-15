@@ -1,0 +1,57 @@
+{
+  "id": "omni.defi",
+  "name": "DeFi",
+  "version": "1.0.0",
+  "description": "DeFi protocol and chain data via DeFi Llama",
+  "author": "Omni",
+  "kind": "tool",
+  "permissions": ["network"],
+  "entry": "index.ts",
+  "tools": [
+    {
+      "name": "token_price",
+      "description": "Get the current price of a token by chain and contract address",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "chain": {
+            "type": "string",
+            "description": "Chain name (e.g. 'ethereum', 'polygon', 'arbitrum', 'bsc')"
+          },
+          "address": {
+            "type": "string",
+            "description": "Token contract address"
+          }
+        },
+        "required": ["chain", "address"]
+      }
+    },
+    {
+      "name": "protocol_tvl",
+      "description": "Get TVL and details for a DeFi protocol",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Protocol slug (e.g. 'aave', 'uniswap', 'lido')"
+          }
+        },
+        "required": ["slug"]
+      }
+    },
+    {
+      "name": "chain_tvl",
+      "description": "Get TVL rankings for all chains",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "number",
+            "description": "Max chains to return (default: 20)"
+          }
+        }
+      }
+    }
+  ]
+}

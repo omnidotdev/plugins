@@ -1,0 +1,44 @@
+{
+  "id": "omni.polymarket",
+  "name": "Polymarket",
+  "version": "1.0.0",
+  "description": "Search and view prediction markets on Polymarket",
+  "author": "Omni",
+  "kind": "tool",
+  "permissions": ["network"],
+  "entry": "index.ts",
+  "tools": [
+    {
+      "name": "market_search",
+      "description": "Search for prediction markets by keyword",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search keyword or phrase"
+          },
+          "limit": {
+            "type": "number",
+            "description": "Max results to return (default: 10)"
+          }
+        },
+        "required": ["query"]
+      }
+    },
+    {
+      "name": "market_detail",
+      "description": "Get detailed information about a specific market by condition ID",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "condition_id": {
+            "type": "string",
+            "description": "Market condition ID"
+          }
+        },
+        "required": ["condition_id"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "omni.wallet",
+  "name": "Wallet",
+  "version": "1.0.0",
+  "description": "Read-only EVM wallet utilities for balance, block info, and gas prices",
+  "author": "Omni",
+  "kind": "tool",
+  "permissions": ["network"],
+  "entry": "index.ts",
+  "tools": [
+    {
+      "name": "wallet_balance",
+      "description": "Check the ETH/native token balance of an address",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string",
+            "description": "Wallet address (0x...)"
+          },
+          "chain": {
+            "type": "string",
+            "description": "Chain name: ethereum, polygon, arbitrum, or base (default: ethereum)"
+          }
+        },
+        "required": ["address"]
+      }
+    },
+    {
+      "name": "wallet_history",
+      "description": "Get the latest block information for a chain",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "chain": {
+            "type": "string",
+            "description": "Chain name: ethereum, polygon, arbitrum, or base (default: ethereum)"
+          }
+        }
+      }
+    },
+    {
+      "name": "wallet_gas",
+      "description": "Get current gas prices for a chain",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "chain": {
+            "type": "string",
+            "description": "Chain name: ethereum, polygon, arbitrum, or base (default: ethereum)"
+          }
+        }
+      }
+    }
+  ]
+}

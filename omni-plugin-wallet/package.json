@@ -1,0 +1,7 @@
+{
+  "name": "omni-plugin-wallet",
+  "private": true,
+  "dependencies": {
+    "viem": "^2.0.0"
+  }
+}
